@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>WeUI</title>
+    <!-- 引入 WeUI -->
+    <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/1.1.0/weui.min.css">
+</head>
+<body ontouchstart>
+    <!-- 使用 WeUI -->
+    <div class="content">
+        {% block body %}{% endblock %}
+    </div>
+    {% block tail_js %}
+    {% endblock %}
+</body>
+</html>
