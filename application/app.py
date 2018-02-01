@@ -90,6 +90,8 @@ def configure_extensions(app):
     # flask_debugtoolbar
     toolbar.init_app(app)
 
+    # weixin 注册
+
     # flask-login (not configured will raise 401 error)
     login_manager.login_view = 'frontend.login'
 
@@ -97,7 +99,7 @@ def configure_extensions(app):
 
     @login_manager.user_loader
     def load_user(id):
-        user= Models.User.query.filter_by(id=id, is_deleted=False).first()
+        user= Models.SystemUser.query.filter_by(id=id, is_deleted=False).first()
         return user
 
     login_manager.init_app(app)

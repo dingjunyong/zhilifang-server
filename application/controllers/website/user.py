@@ -9,12 +9,12 @@ from configs.config import TEMPLATE_DIR
 import application.models as Models
 
 
-home = Blueprint('home', __name__, url_prefix='/api/')
+user = Blueprint('usercenter', __name__, url_prefix='/api/usercenter')
 
-@home.route('/getHotActivities', methods=['GET','POST'])
-def get_hot_activities():
-    return render_template('weixin_store/index.html')
-
-@home.route('/getHotActivities', methods=['GET','POST'])
-def get_fujin_activities():
-    return render_template('weixin_store/index.html')
+@user.route('/getUserInfo', methods=["GET",'POST'])
+def get_user_info():
+    data = request.args
+    openId = data.get('openId')
+    sign = data.get('sign')
+    time = data.get('time')
+    return jsonify(message='OK')

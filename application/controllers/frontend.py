@@ -8,6 +8,7 @@ from flask_login import login_user, current_user, logout_user, \
         confirm_login, login_fresh, fresh_login_required, login_required
 from configs.config import TEMPLATE_DIR
 import application.models as Models
+from datetime import datetime,timedelta
 
 
 frontend = Blueprint('frontend', __name__, url_prefix='')
@@ -31,7 +32,7 @@ def login():
         email = request.form.get('email', None)
         password = request.form.get('password', None)
         if email and password:
-            user, authenticated = Models.User.authenticate(email=email, password=password)
+            user, authenticated = Models.SystemUser.authenticate(email=email, password=password)
         else:
             flash("请输入正确的用户名和密码")
             return redirect_next()
@@ -44,6 +45,8 @@ def login():
         return redirect_next()
 
     return render_template('admin/user/login.html')
+
+
 
 @frontend.route('/admin/logout')
 @login_required

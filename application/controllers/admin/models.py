@@ -22,8 +22,8 @@ class UserView(MBModelView):
 #
 
 
-#-----角色-----#
-admin.add_view(MBModelView(Models.Role, db.session,name='角色管理'))
+# #-----角色-----#
+# admin.add_view(MBModelView(Models.Role, db.session,name='角色管理'))
 #-----用户-----#
 admin.add_view(UserView(Models.User,db.session,name='所有用户',category='用户管理'))
 # admin.add_view(MBModelView(Models.SocialOAuth, category='User'))

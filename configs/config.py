@@ -74,13 +74,18 @@ class BaseConfig(object):
         '^/_debug_toolbar/',
     )
 
+    # ===========================================
+    # 微信
+    WEIXIN_APP_ID = 'wxfb39705a144d0144'
+    WEIXIN_APP_SECRET = 'e8cd29ee68a6131d3bb7fdd98b5022f4'
+
 
 
 class ProdConfig(BaseConfig):
     DEBUG = True
     PROD = True
     ENV = E.production
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123@127.0.0.1:3306/zlf_car'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123@39.108.219.170:3306/zhilifang_dev'
 
 
 class DevConfig(BaseConfig):
@@ -90,13 +95,13 @@ class DevConfig(BaseConfig):
     # Flask-Assets
     #
     ASSETS_DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123@127.0.0.1:3306/zlf_car'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123@39.108.219.170:3306/zhilifang_dev'
 
 
 class TestConfig(DevConfig):
     TESTING = True
     ENV = E.test
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123@127.0.0.1:3306/zlf_car'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123@39.108.219.170:3306/zhilifang_dev'
     # flask cache
     CACHE_TYPE = 'null'
     CACHE_NO_NULL_WARNING = True
